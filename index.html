@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portal de gestão dos canais de marketplace da Le Moritz.">
+  <title>Portal Marketplace | Alessandra & Le Moritz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Voltar ao início">
+      <span class="brand-mark">LM</span>
+      <span><strong>Portal Marketplace</strong><small>Alessandra · Le Moritz</small></span>
+    </a>
+    <nav aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#canais">Canais</a>
+      <a href="#agenda">Agenda</a>
+    </nav>
+    <button class="menu-button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <span class="eyebrow">GESTÃO DE MARKETPLACES</span>
+        <h1>Tudo o que importa,<br><em>em um só lugar.</em></h1>
+        <p>Acompanhe metas, campanhas, documentos e planos de ação dos canais Le Moritz.</p>
+        <a class="primary-button" href="#canais">Acessar canais <span>→</span></a>
+      </div>
+      <aside class="hero-summary" aria-label="Resumo do portal">
+        <span>Visão geral</span>
+        <strong>4</strong>
+        <p>canais centralizados</p>
+        <div class="mini-channels">
+          <i class="ml"></i><i class="tt"></i><i class="sh"></i><i class="az"></i>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="canais">
+      <div class="section-heading">
+        <div><span class="eyebrow">OPERAÇÃO</span><h2>Escolha um canal</h2></div>
+        <p>Cada ambiente reúne as informações essenciais para acompanhar e executar a estratégia do canal.</p>
+      </div>
+      <div class="channel-grid" id="channelGrid"></div>
+    </section>
+
+    <section class="section agenda-section" id="agenda">
+      <div class="section-heading">
+        <div><span class="eyebrow">PLANEJAMENTO</span><h2>Próximas campanhas</h2></div>
+        <p>Um resumo das datas importantes de todos os canais.</p>
+      </div>
+      <div class="empty-panel">
+        <span class="empty-icon">✦</span>
+        <div><strong>Calendário pronto para receber suas campanhas</strong><p>As datas poderão ser incluídas e atualizadas conforme o seu planejamento.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Portal Marketplace · Alessandra & Le Moritz</p>
+    <p>Uso interno da operação</p>
+  </footer>
+
+  <dialog id="channelDialog">
+    <button class="close-button" aria-label="Fechar">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
