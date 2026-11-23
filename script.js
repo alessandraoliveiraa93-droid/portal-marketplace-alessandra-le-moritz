@@ -1,18 +1,20 @@
 const revenueDashboard = {
   referenceDate: '22/11/2026',
+  remainingDays: 8,
   total: {
     goal: 2400000,
-    actual: 1088373.10,
-    gap: 1311626.90,
-    projection: 1603270.15,
-    attainment: 45.35,
-    projectedAttainment: 66.80
+    actual: 1132856.19,
+    gap: 1267143.81,
+    dailyGoal: 158392.98,
+    projection: 1596297.37,
+    attainment: 47.20,
+    projectedAttainment: 66.51
   },
   channels: [
-    { name: 'Mercado Livre', goal: 1510000, actual: 736008.19, gap: 773991.81, projection: 1037102.45, attainment: 48.74 },
-    { name: 'Shopee', goal: 400000, actual: 129923.05, gap: 270076.95, projection: 183073.39, attainment: 32.48 },
-    { name: 'Amazon', goal: 90000, actual: 50738.86, gap: 39261.14, projection: 87383.59, attainment: 56.38 },
-    { name: 'TikTok Shop', goal: 400000, actual: 171703.00, gap: 228297.00, projection: 295710.72, attainment: 42.93 }
+    { id: 'ml', name: 'Mercado Livre', goal: 1510000, actual: 736008.19, gap: 773991.81, dailyGoal: 96748.98, projection: 1037102.45, attainment: 48.74 },
+    { id: 'shopee', name: 'Shopee', goal: 400000, actual: 129923.05, gap: 270076.95, dailyGoal: 33759.62, projection: 183073.39, attainment: 32.48 },
+    { id: 'amazon', name: 'Amazon', goal: 90000, actual: 55554.56, gap: 34445.44, dailyGoal: 4305.68, projection: 78281.43, attainment: 61.73 },
+    { id: 'tiktok', name: 'TikTok Shop', goal: 400000, actual: 211370.39, gap: 188629.61, dailyGoal: 23578.70, projection: 297840.10, attainment: 52.84 }
   ]
 };
 
@@ -86,6 +88,38 @@ const channels = [
   { id: 'amazon', name: 'Amazon', short: 'AZ', description: 'Catálogo, rentabilidade e desenvolvimento do canal.', accent: '#3d6e8b', soft: '#dcebf2' }
 ];
 
+
+const dailyRoutines = {
+  ml: [
+    'Conferir faturamento, pedidos e cancelamentos do dia anterior',
+    'Validar estoque Full e risco de ruptura dos principais SKUs',
+    'Revisar anúncios pausados, reputação e mensagens pendentes',
+    'Acompanhar campanhas de Ads, investimento e retorno',
+    'Verificar preços, promoções e competitividade dos anúncios'
+  ],
+  shopee: [
+    'Conferir faturamento, pedidos pendentes e expedição',
+    'Validar estoque dos produtos prioritários',
+    'Acompanhar Ads, cupons e campanhas ativas',
+    'Responder chat, avaliações e ocorrências da conta',
+    'Revisar afiliados, ofertas e oportunidades promocionais'
+  ],
+  amazon: [
+    'Conferir pedidos, faturamento e cancelamentos',
+    'Monitorar estoque, Buy Box e produtos indisponíveis',
+    'Verificar anúncios bloqueados ou com erro de catálogo',
+    'Acompanhar Ads e rentabilidade do canal',
+    'Revisar notificações de performance da conta'
+  ],
+  tiktok: [
+    'Conferir pedidos, faturamento e prazos de expedição',
+    'Acompanhar GMV Max, investimento e retorno',
+    'Validar estoque e produtos ativos nas campanhas',
+    'Monitorar afiliados, amostras e conteúdos publicados',
+    'Revisar lives, violações e notificações da conta'
+  ]
+};
+
 const sections = [
   ['◫', 'Indicadores e metas', 'Faturamento, margem, ROAS e progresso das metas.'],
   ['↗', 'Links importantes', 'Acesso rápido às páginas e ferramentas do canal.'],
@@ -108,12 +142,32 @@ grid.innerHTML = channels.map(channel => `
 
 function openChannel(id) {
   const channel = channels.find(item => item.id === id);
+  const performance = revenueDashboard.channels.find(item => item.id === id);
+  const routine = dailyRoutines[id] || [];
+
   dialogContent.innerHTML = `
     <div class="dialog-head" style="--soft:${channel.soft}">
       <span class="channel-icon" style="background:${channel.soft};color:${channel.accent}">${channel.short}</span>
       <h2>${channel.name}</h2><p>${channel.description}</p>
     </div>
-    <div class="dialog-body">${sections.map(item => `<section class="info-block"><span>${item[0]}</span><h3>${item[1]}</h3><p>${item[2]}</p></section>`).join('')}</div>`;
+
+    <div class="channel-kpis">
+      <div class="channel-kpi"><span>Meta mensal</span><strong>${currency.format(performance.goal)}</strong></div>
+      <div class="channel-kpi highlight"><span>Meta diária necessária</span><strong>${currency.format(performance.dailyGoal)}</strong></div>
+      <div class="channel-kpi"><span>Realizado</span><strong>${currency.format(performance.actual)}</strong></div>
+      <div class="channel-kpi"><span>Atingimento</span><strong>${percentage(performance.attainment)}</strong></div>
+      <div class="channel-kpi"><span>Projeção</span><strong>${currency.format(performance.projection)}</strong></div>
+    </div>
+
+    <section class="routine-section">
+      <h3>Rotina diária</h3>
+      <ul class="routine-list">${routine.map(item => `<li>${item}</li>`).join('')}</ul>
+    </section>
+
+    <div class="dialog-body">
+      <h3 class="dialog-section-title">Outras informações do canal</h3>
+      ${sections.map(item => `<section class="info-block"><span>${item[0]}</span><h3>${item[1]}</h3><p>${item[2]}</p></section>`).join('')}
+    </div>`;
   dialog.showModal();
 }
 
