@@ -89,13 +89,6 @@ const channels = [
 ];
 
 
-const assistantRoutine = [
-  'Preencher CPA',
-  'Conferir preços De/Por',
-  'Conferir anúncios inativos por falta de estoque',
-  'Conferir a reputação da conta'
-];
-
 const dailyRoutines = {
   ml: [
     'Conferir faturamento, pedidos e cancelamentos do dia anterior',
@@ -166,18 +159,9 @@ function openChannel(id) {
       <div class="channel-kpi projection"><span>Projeção</span><strong>${currency.format(performance.projection)}</strong></div>
     </div>
 
-    <section class="routine-section">
-      <h3>Rotina diária</h3>
-      <div class="routine-owners">
-        <article class="routine-owner jessica">
-          <div class="routine-owner-head"><strong>Jéssica</strong><span class="routine-role">Assistente</span></div>
-          <ul class="routine-list">${assistantRoutine.map(item => `<li>${item}</li>`).join('')}</ul>
-        </article>
-        <article class="routine-owner alessandra">
-          <div class="routine-owner-head"><strong>Alessandra</strong><span class="routine-role">Gestão</span></div>
-          <ul class="routine-list">${routine.map(item => `<li>${item}</li>`).join('')}</ul>
-        </article>
-      </div>
+    <section class="channel-functions-section">
+      <h3>Principais funções do canal</h3>
+      <ul class="routine-list">${routine.map(item => `<li>${item}</li>`).join('')}</ul>
     </section>
 
     <div class="dialog-body">
