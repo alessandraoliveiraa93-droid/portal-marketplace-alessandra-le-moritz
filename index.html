@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
   <header class="topbar">
@@ -19,7 +19,7 @@
     <nav aria-label="Navegação principal">
       <a href="#inicio">Início</a>
       <a href="#faturamento">Faturamento</a>
-      <a href="#time">Time</a>
+      <button class="nav-team-button" id="navTeamButton" type="button">Rotinas</button>
       <a href="#canais">Canais</a>
       <a href="#agenda">Agenda</a>
     </nav>
@@ -74,42 +74,6 @@
     </section>
 
 
-    <section class="section team-section" id="time">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">ORGANIZAÇÃO</span>
-          <h2>Rotinas do time</h2>
-        </div>
-        <p>Responsabilidades recorrentes da operação, organizadas por pessoa.</p>
-      </div>
-
-      <div class="team-grid">
-        <article class="team-card jessica-card">
-          <div class="team-card-head">
-            <div class="team-avatar">JS</div>
-            <div><h3>Jéssica</h3><span>Assistente</span></div>
-          </div>
-          <ul class="team-routine-list">
-            <li>Preencher CPA</li>
-            <li>Conferir preços De/Por</li>
-            <li>Conferir anúncios inativos por falta de estoque</li>
-            <li>Conferir a reputação da conta</li>
-          </ul>
-        </article>
-
-        <article class="team-card alessandra-card">
-          <div class="team-card-head">
-            <div class="team-avatar">AO</div>
-            <div><h3>Alessandra</h3><span>Gestão</span></div>
-          </div>
-          <div class="team-empty">
-            <strong>Rotinas a definir</strong>
-            <p>Este espaço receberá as atividades recorrentes da gestão.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
     <section class="section" id="canais">
       <div class="section-heading">
         <div><span class="eyebrow">OPERAÇÃO</span><h2>Escolha um canal</h2></div>
@@ -135,11 +99,54 @@
     <p>Uso interno da operação</p>
   </footer>
 
+
+  <button class="team-trigger" id="teamTrigger" type="button" aria-controls="teamDrawer" aria-expanded="false">
+    <span class="team-trigger-icon">RT</span>
+    <span><strong>Rotinas do time</strong><small>Abrir painel</small></span>
+  </button>
+
+  <div class="team-overlay" id="teamOverlay" hidden></div>
+  <aside class="team-drawer" id="teamDrawer" aria-hidden="true" aria-labelledby="teamDrawerTitle">
+    <div class="team-drawer-head">
+      <div>
+        <span class="eyebrow">ORGANIZAÇÃO</span>
+        <h2 id="teamDrawerTitle">Rotinas do time</h2>
+      </div>
+      <button class="team-close" id="teamClose" type="button" aria-label="Fechar rotinas">×</button>
+    </div>
+    <p class="team-drawer-intro">Responsabilidades recorrentes da operação, organizadas por pessoa.</p>
+
+    <div class="team-accordions">
+      <details class="team-accordion">
+        <summary>
+          <span class="drawer-avatar jessica-avatar">JS</span>
+          <span class="drawer-person"><strong>Jéssica</strong><small>Assistente</small></span>
+          <span class="drawer-chevron">⌄</span>
+        </summary>
+        <ul class="drawer-routine-list">
+          <li>Preencher CPA</li>
+          <li>Conferir preços De/Por</li>
+          <li>Conferir anúncios inativos por falta de estoque</li>
+          <li>Conferir a reputação da conta</li>
+        </ul>
+      </details>
+
+      <details class="team-accordion">
+        <summary>
+          <span class="drawer-avatar alessandra-avatar">AO</span>
+          <span class="drawer-person"><strong>Alessandra</strong><small>Gestão</small></span>
+          <span class="drawer-chevron">⌄</span>
+        </summary>
+        <div class="drawer-empty"><strong>Rotinas a definir</strong><p>Este espaço receberá as atividades recorrentes da gestão.</p></div>
+      </details>
+    </div>
+  </aside>
+
   <dialog id="channelDialog">
     <button class="close-button" aria-label="Fechar">×</button>
     <div id="dialogContent"></div>
   </dialog>
 
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>
