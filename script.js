@@ -81,6 +81,36 @@ function renderRevenueDashboard() {
 
 renderRevenueDashboard();
 
+
+const teamTrigger = document.querySelector('#teamTrigger');
+const navTeamButton = document.querySelector('#navTeamButton');
+const teamDrawer = document.querySelector('#teamDrawer');
+const teamOverlay = document.querySelector('#teamOverlay');
+const teamClose = document.querySelector('#teamClose');
+
+function openTeamDrawer() {
+  teamDrawer.classList.add('open');
+  teamDrawer.setAttribute('aria-hidden', 'false');
+  teamTrigger.setAttribute('aria-expanded', 'true');
+  teamOverlay.hidden = false;
+  teamClose.focus();
+}
+
+function closeTeamDrawer() {
+  teamDrawer.classList.remove('open');
+  teamDrawer.setAttribute('aria-hidden', 'true');
+  teamTrigger.setAttribute('aria-expanded', 'false');
+  teamOverlay.hidden = true;
+}
+
+teamTrigger.addEventListener('click', openTeamDrawer);
+navTeamButton.addEventListener('click', openTeamDrawer);
+teamClose.addEventListener('click', closeTeamDrawer);
+teamOverlay.addEventListener('click', closeTeamDrawer);
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && teamDrawer.classList.contains('open')) closeTeamDrawer();
+});
+
 const channels = [
   { id: 'ml', name: 'Mercado Livre', short: 'ML', description: 'Performance, operação Full e estratégia comercial.', accent: '#987d19', soft: '#fbf2bf' },
   { id: 'tiktok', name: 'TikTok Shop', short: 'TT', description: 'Conteúdo, lives, afiliados e conversão.', accent: '#373036', soft: '#eee8ed' },
