@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
   <header class="topbar">
@@ -18,10 +18,8 @@
     </a>
     <nav aria-label="Navegação principal">
       <a href="#inicio">Início</a>
-      <a href="#faturamento">Faturamento</a>
-      <button class="nav-team-button" id="navTeamButton" type="button">Rotinas</button>
-      <a href="#canais">Canais</a>
-      <a href="#agenda">Agenda</a>
+      <a href="#faturamento">Metas</a>
+      <a href="#canais">Acessos</a>
     </nav>
     <button class="menu-button" aria-label="Abrir menu" aria-expanded="false">☰</button>
   </header>
@@ -32,7 +30,7 @@
         <span class="eyebrow">GESTÃO DE MARKETPLACES</span>
         <h1>Tudo o que importa,<br><em>em um só lugar.</em></h1>
         <p>Acompanhe metas, campanhas, documentos e planos de ação dos canais Le Moritz.</p>
-        <a class="primary-button" href="#canais">Acessar canais <span>→</span></a>
+        <a class="primary-button" href="#faturamento">Ver metas</a>
       </div>
       <aside class="hero-summary" aria-label="Resumo do portal">
         <span>Visão geral</span>
@@ -76,22 +74,12 @@
 
     <section class="section" id="canais">
       <div class="section-heading">
-        <div><span class="eyebrow">OPERAÇÃO</span><h2>Escolha um canal</h2></div>
-        <p>Cada ambiente reúne as informações essenciais para acompanhar e executar a estratégia do canal.</p>
+        <div><span class="eyebrow">ORGANIZAÇÃO</span><h2>Acessos rápidos</h2></div>
+        <p>Abra somente o conteúdo que precisa consultar. As informações ficam organizadas em blocos independentes.</p>
       </div>
       <div class="channel-grid" id="channelGrid"></div>
     </section>
 
-    <section class="section agenda-section" id="agenda">
-      <div class="section-heading">
-        <div><span class="eyebrow">PLANEJAMENTO</span><h2>Próximas campanhas</h2></div>
-        <p>Um resumo das datas importantes de todos os canais.</p>
-      </div>
-      <div class="empty-panel">
-        <span class="empty-icon">✦</span>
-        <div><strong>Calendário pronto para receber suas campanhas</strong><p>As datas poderão ser incluídas e atualizadas conforme o seu planejamento.</p></div>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -99,11 +87,6 @@
     <p>Uso interno da operação</p>
   </footer>
 
-
-  <button class="team-trigger" id="teamTrigger" type="button" aria-controls="teamDrawer" aria-expanded="false">
-    <span class="team-trigger-icon">RT</span>
-    <span><strong>Rotinas do time</strong><small>Abrir painel</small></span>
-  </button>
 
   <div class="team-overlay" id="teamOverlay" hidden></div>
   <aside class="team-drawer" id="teamDrawer" aria-hidden="true" aria-labelledby="teamDrawerTitle">
@@ -147,6 +130,6 @@
     <div id="dialogContent"></div>
   </dialog>
 
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=9"></script>
 </body>
 </html>
