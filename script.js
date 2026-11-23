@@ -89,6 +89,13 @@ const channels = [
 ];
 
 
+const assistantRoutine = [
+  'Preencher CPA',
+  'Conferir preços De/Por',
+  'Conferir anúncios inativos por falta de estoque',
+  'Conferir a reputação da conta'
+];
+
 const dailyRoutines = {
   ml: [
     'Conferir faturamento, pedidos e cancelamentos do dia anterior',
@@ -152,16 +159,25 @@ function openChannel(id) {
     </div>
 
     <div class="channel-kpis">
-      <div class="channel-kpi"><span>Meta mensal</span><strong>${currency.format(performance.goal)}</strong></div>
-      <div class="channel-kpi highlight"><span>Meta diária necessária</span><strong>${currency.format(performance.dailyGoal)}</strong></div>
-      <div class="channel-kpi"><span>Realizado</span><strong>${currency.format(performance.actual)}</strong></div>
-      <div class="channel-kpi"><span>Atingimento</span><strong>${percentage(performance.attainment)}</strong></div>
-      <div class="channel-kpi"><span>Projeção</span><strong>${currency.format(performance.projection)}</strong></div>
+      <div class="channel-kpi meta-monthly"><span>Meta mensal</span><strong>${currency.format(performance.goal)}</strong></div>
+      <div class="channel-kpi daily-needed"><span>Meta diária necessária</span><strong>${currency.format(performance.dailyGoal)}</strong></div>
+      <div class="channel-kpi actual"><span>Realizado</span><strong>${currency.format(performance.actual)}</strong></div>
+      <div class="channel-kpi attainment"><span>Atingimento</span><strong>${percentage(performance.attainment)}</strong></div>
+      <div class="channel-kpi projection"><span>Projeção</span><strong>${currency.format(performance.projection)}</strong></div>
     </div>
 
     <section class="routine-section">
       <h3>Rotina diária</h3>
-      <ul class="routine-list">${routine.map(item => `<li>${item}</li>`).join('')}</ul>
+      <div class="routine-owners">
+        <article class="routine-owner jessica">
+          <div class="routine-owner-head"><strong>Jéssica</strong><span class="routine-role">Assistente</span></div>
+          <ul class="routine-list">${assistantRoutine.map(item => `<li>${item}</li>`).join('')}</ul>
+        </article>
+        <article class="routine-owner alessandra">
+          <div class="routine-owner-head"><strong>Alessandra</strong><span class="routine-role">Gestão</span></div>
+          <ul class="routine-list">${routine.map(item => `<li>${item}</li>`).join('')}</ul>
+        </article>
+      </div>
     </section>
 
     <div class="dialog-body">
