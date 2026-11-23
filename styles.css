@@ -110,6 +110,25 @@ dialog::backdrop { background: rgba(39,31,28,.48); backdrop-filter: blur(5px); }
 .data-note { margin: 14px 4px 0; color: var(--muted); font-size: 13px; }
 
 
+
+.team-section { background:#f8f9fa; }
+.team-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.team-card { padding:28px; border:1px solid var(--line); border-radius:22px; background:#fff; box-shadow:0 12px 35px rgba(35,40,46,.06); }
+.team-card.jessica-card { border-top:5px solid #b78343; }
+.team-card.alessandra-card { border-top:5px solid #596879; }
+.team-card-head { display:flex; align-items:center; gap:14px; padding-bottom:20px; border-bottom:1px solid var(--line); }
+.team-avatar { width:48px; height:48px; border-radius:14px; display:grid; place-items:center; background:#e7eaed; color:#424b56; font-size:14px; font-weight:800; }
+.team-card-head h3 { font-size:21px; }
+.team-card-head span { display:block; margin-top:3px; color:var(--muted); font-size:14px; }
+.team-routine-list { display:grid; gap:12px; margin:22px 0 0; padding:0; list-style:none; }
+.team-routine-list li { position:relative; padding:13px 14px 13px 42px; border-radius:12px; background:#f3f4f5; font-size:15px; line-height:1.45; }
+.team-routine-list li::before { content:"✓"; position:absolute; left:15px; color:#7a562b; font-weight:800; }
+.team-empty { margin-top:22px; padding:24px; border:1px dashed #c5cbd1; border-radius:14px; background:#f6f7f8; }
+.team-empty strong { display:block; font-size:15px; }
+.team-empty p { margin:6px 0 0; color:var(--muted); font-size:14px; line-height:1.5; }
+.channel-functions-section { margin:20px 48px 0; padding:24px; border-radius:17px; background:#eef0f2; }
+.channel-functions-section h3 { font-size:20px; margin-bottom:16px; }
+
 .channel-kpis { display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:10px; padding:24px 48px 0; }
 .channel-kpi { padding:16px; border:1px solid var(--line); border-radius:14px; background:#f6f7f8; }
 .channel-kpi span { display:block; min-height:34px; color:var(--muted); font-size:12px; line-height:1.35; }
@@ -157,7 +176,9 @@ dialog::backdrop { background: rgba(39,31,28,.48); backdrop-filter: blur(5px); }
   .channel-card { min-height:235px; }
   footer { display:block; }
   .dialog-body { grid-template-columns:1fr; padding:28px 24px 35px; }
+  .team-grid { grid-template-columns:1fr; }
   .channel-kpis { grid-template-columns:1fr 1fr; padding:22px 24px 0; }
+  .channel-functions-section { margin:18px 24px 0; }
   .routine-section { margin:18px 24px 0; }
   .routine-owners { grid-template-columns:1fr; }
   .routine-list { grid-template-columns:1fr; }
