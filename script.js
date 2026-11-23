@@ -106,10 +106,10 @@ document.addEventListener('keydown', event => {
 });
 
 const channels = [
-  { id: 'ml', name: 'Mercado Livre', short: 'ML', description: 'Performance, operação Full e estratégia comercial.', accent: '#987d19', soft: '#fbf2bf' },
-  { id: 'tiktok', name: 'TikTok Shop', short: 'TT', description: 'Conteúdo, lives, afiliados e conversão.', accent: '#373036', soft: '#eee8ed' },
-  { id: 'shopee', name: 'Shopee', short: 'SH', description: 'Campanhas, cupons, mídia e crescimento.', accent: '#b44d36', soft: '#f9ddd3' },
-  { id: 'amazon', name: 'Amazon', short: 'AZ', description: 'Catálogo, rentabilidade e desenvolvimento do canal.', accent: '#3d6e8b', soft: '#dcebf2' }
+  { id: 'ml', name: 'Mercado Livre', short: 'ML', logo: 'https://cdn.simpleicons.org/mercadolibre/2D3277', description: 'Performance, operação Full e estratégia comercial.', accent: '#987d19', soft: '#fbf2bf' },
+  { id: 'tiktok', name: 'TikTok Shop', short: 'TT', logo: 'https://cdn.simpleicons.org/tiktok/000000', description: 'Conteúdo, lives, afiliados e conversão.', accent: '#373036', soft: '#eee8ed' },
+  { id: 'shopee', name: 'Shopee', short: 'SH', logo: 'https://cdn.simpleicons.org/shopee/EE4D2D', description: 'Campanhas, cupons, mídia e crescimento.', accent: '#b44d36', soft: '#f9ddd3' },
+  { id: 'amazon', name: 'Amazon', short: 'AZ', logo: 'https://cdn.simpleicons.org/amazon/FF9900', description: 'Catálogo, rentabilidade e desenvolvimento do canal.', accent: '#3d6e8b', soft: '#dcebf2' }
 ];
 
 
@@ -159,7 +159,7 @@ const dialogContent = document.querySelector('#dialogContent');
 
 grid.innerHTML = channels.map(channel => `
   <article class="channel-card" tabindex="0" role="button" aria-label="Abrir ${channel.name}" style="--accent:${channel.accent};--accent-soft:${channel.soft}" data-channel="${channel.id}">
-    <div class="card-top"><span class="channel-icon">${channel.short}</span><span class="arrow">↗</span></div>
+    <div class="card-top"><span class="channel-icon"><img class="channel-logo" src="${channel.logo}" alt="Logo ${channel.name}"></span><span class="arrow">↗</span></div>
     <h3>${channel.name}</h3><p>${channel.description}</p>
     <div class="card-meta"><span>Metas</span><span>Campanhas</span><span>Documentos</span></div>
   </article>`).join('') + `
@@ -207,7 +207,7 @@ function openChannel(id) {
 
   dialogContent.innerHTML = `
     <div class="dialog-head" style="--soft:${channel.soft}">
-      <span class="channel-icon" style="background:${channel.soft};color:${channel.accent}">${channel.short}</span>
+      <span class="channel-icon" style="background:${channel.soft};color:${channel.accent}"><img class="channel-logo" src="${channel.logo}" alt="Logo ${channel.name}"></span>
       <h2>${channel.name}</h2><p>${channel.description}</p>
     </div>
 
