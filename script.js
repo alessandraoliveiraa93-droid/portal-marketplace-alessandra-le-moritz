@@ -82,8 +82,6 @@ function renderRevenueDashboard() {
 renderRevenueDashboard();
 
 
-const teamTrigger = document.querySelector('#teamTrigger');
-const navTeamButton = document.querySelector('#navTeamButton');
 const teamDrawer = document.querySelector('#teamDrawer');
 const teamOverlay = document.querySelector('#teamOverlay');
 const teamClose = document.querySelector('#teamClose');
@@ -91,7 +89,6 @@ const teamClose = document.querySelector('#teamClose');
 function openTeamDrawer() {
   teamDrawer.classList.add('open');
   teamDrawer.setAttribute('aria-hidden', 'false');
-  teamTrigger.setAttribute('aria-expanded', 'true');
   teamOverlay.hidden = false;
   teamClose.focus();
 }
@@ -99,12 +96,9 @@ function openTeamDrawer() {
 function closeTeamDrawer() {
   teamDrawer.classList.remove('open');
   teamDrawer.setAttribute('aria-hidden', 'true');
-  teamTrigger.setAttribute('aria-expanded', 'false');
   teamOverlay.hidden = true;
 }
 
-teamTrigger.addEventListener('click', openTeamDrawer);
-navTeamButton.addEventListener('click', openTeamDrawer);
 teamClose.addEventListener('click', closeTeamDrawer);
 teamOverlay.addEventListener('click', closeTeamDrawer);
 document.addEventListener('keydown', event => {
@@ -168,7 +162,43 @@ grid.innerHTML = channels.map(channel => `
     <div class="card-top"><span class="channel-icon">${channel.short}</span><span class="arrow">↗</span></div>
     <h3>${channel.name}</h3><p>${channel.description}</p>
     <div class="card-meta"><span>Metas</span><span>Campanhas</span><span>Documentos</span></div>
-  </article>`).join('');
+  </article>`).join('') + `
+  <article class="channel-card utility-card" tabindex="0" role="button" id="teamAccessButton" aria-label="Abrir rotinas do time" style="--accent:#8d4f62;--accent-soft:#f0d9e0">
+    <div class="card-top"><span class="channel-icon">RT</span><span class="arrow">＋</span></div>
+    <h3>Rotinas do time</h3><p>Atividades recorrentes organizadas por responsável.</p>
+    <div class="card-meta"><span>Jéssica</span><span>Alessandra</span></div>
+  </article>
+  <article class="channel-card utility-card" tabindex="0" role="button" id="agendaAccessButton" aria-label="Abrir calendário de campanhas" style="--accent:#6e568d;--accent-soft:#e8def3">
+    <div class="card-top"><span class="channel-icon">CA</span><span class="arrow">＋</span></div>
+    <h3>Campanhas</h3><p>Calendário comercial, datas importantes e ações planejadas.</p>
+    <div class="card-meta"><span>Calendário</span><span>Planejamento</span></div>
+  </article>`;
+
+
+function openAgenda() {
+  dialogContent.innerHTML = `
+    <div class="dialog-head" style="--soft:#e8def3">
+      <span class="channel-icon" style="background:#e8def3;color:#6e568d">CA</span>
+      <h2>Campanhas</h2>
+      <p>Calendário comercial, datas importantes e ações planejadas.</p>
+    </div>
+    <div class="dialog-body">
+      <div class="empty-panel" style="grid-column:1 / -1">
+        <span class="empty-icon">✦</span>
+        <div><strong>Calendário pronto para receber suas campanhas</strong><p>As datas serão incluídas conforme o planejamento comercial.</p></div>
+      </div>
+    </div>`;
+  dialog.showModal();
+}
+
+document.querySelector('#teamAccessButton').addEventListener('click', openTeamDrawer);
+document.querySelector('#teamAccessButton').addEventListener('keydown', event => {
+  if (event.key === 'Enter' || event.key === ' ') openTeamDrawer();
+});
+document.querySelector('#agendaAccessButton').addEventListener('click', openAgenda);
+document.querySelector('#agendaAccessButton').addEventListener('keydown', event => {
+  if (event.key === 'Enter' || event.key === ' ') openAgenda();
+});
 
 function openChannel(id) {
   const channel = channels.find(item => item.id === id);
