@@ -110,23 +110,32 @@ dialog::backdrop { background: rgba(39,31,28,.48); backdrop-filter: blur(5px); }
 .data-note { margin: 14px 4px 0; color: var(--muted); font-size: 13px; }
 
 @media (max-width: 780px) {
-  .topbar { height:72px; }.topbar nav { display:none; }.menu-button { display:block; }
+  .topbar { height:72px; }
+  .topbar nav { display:none; }
+  .menu-button { display:block; }
   .topbar.open nav { display:flex; position:absolute; top:72px; left:0; right:0; padding:22px 24px; background:var(--paper); flex-direction:column; gap:18px; border-bottom:1px solid var(--line); }
-  .hero { min-height:auto; padding-top:70px; grid-template-columns:1fr; gap:45px; }.hero-summary { max-width:350px; }
-  .section { padding-top:70px; padding-bottom:70px; }.section-heading { display:block; }
+  .hero { min-height:auto; padding-top:70px; grid-template-columns:1fr; gap:45px; }
+  .hero-summary { max-width:350px; }
+  .section { padding-top:70px; padding-bottom:70px; }
+  .section-heading { display:block; }
+  .section-heading > p { margin-top:18px; }
   .revenue-summary { grid-template-columns:1fr 1fr; }
   .summary-card.primary { grid-column:1 / -1; }
   .panel-heading { display:block; }
   .chart-legend { margin-top:16px; }
-  .revenue-metrics { grid-template-columns:1fr 1fr; }.section-heading > p { margin-top:18px; }
-  .channel-grid { grid-template-columns:1fr; }.channel-card { min-height:235px; }
+  .revenue-metrics { grid-template-columns:1fr 1fr; }
+  .channel-grid { grid-template-columns:1fr; }
+  .channel-card { min-height:235px; }
   footer { display:block; }
+  .dialog-body { grid-template-columns:1fr; padding:28px 24px 35px; }
+  .dialog-head { padding:42px 24px 28px; }
+  .dialog-head h2 { font-size:34px; }
 }
+
 @media (max-width: 480px) {
   .revenue-summary { grid-template-columns:1fr; }
   .summary-card.primary { grid-column:auto; }
   .revenue-panel { padding:20px; }
   .revenue-row-head { align-items:flex-start; }
   .revenue-metrics { grid-template-columns:1fr; gap:10px; }
-  footer { display:block;.dialog-body { grid-template-columns:1fr; padding:28px 24px 35px; }.dialog-head { padding:42px 24px 28px; }.dialog-head h2 { font-size:34px; }
 }
