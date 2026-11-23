@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
   <header class="topbar">
@@ -18,6 +18,7 @@
     </a>
     <nav aria-label="Navegação principal">
       <a href="#inicio">Início</a>
+      <a href="#faturamento">Faturamento</a>
       <a href="#canais">Canais</a>
       <a href="#agenda">Agenda</a>
     </nav>
@@ -40,6 +41,35 @@
           <i class="ml"></i><i class="tt"></i><i class="sh"></i><i class="az"></i>
         </div>
       </aside>
+    </section>
+
+
+    <section class="section revenue-section" id="faturamento">
+      <div class="section-heading revenue-heading">
+        <div>
+          <span class="eyebrow">DESEMPENHO DE NOVEMBRO</span>
+          <h2>Faturamento por canal</h2>
+        </div>
+        <p>Meta, realizado, desvio e projeção consolidados com base no Dashboard Le Moritz.</p>
+      </div>
+
+      <div class="revenue-summary" id="revenueSummary" aria-label="Resumo geral do faturamento"></div>
+
+      <div class="revenue-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="eyebrow">VISÃO POR CANAL</span>
+            <h3>Progresso das metas</h3>
+          </div>
+          <div class="chart-legend" aria-label="Legenda">
+            <span><i class="legend-actual"></i>Realizado</span>
+            <span><i class="legend-projection"></i>Projeção</span>
+          </div>
+        </div>
+        <div class="revenue-channel-list" id="revenueChannelList"></div>
+      </div>
+
+      <p class="data-note">Dados atualizados até 22/11/2026 · Fonte: Dashboard Le Moritz</p>
     </section>
 
     <section class="section" id="canais">
@@ -72,6 +102,6 @@
     <div id="dialogContent"></div>
   </dialog>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
